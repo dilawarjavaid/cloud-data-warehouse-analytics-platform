@@ -53,3 +53,16 @@ docs/    -> Architecture and documentation
 data/    -> Raw and curated CSV data
 python/  -> Python ETL and transformation scripts
 sql/     -> Warehouse DDL and analytics SQL
+
+
+## Architecture Diagram
+
+```mermaid
+flowchart TD
+    A[Raw Sales Data Generator] --> B[Raw Storage Layer S3 Style]
+    B --> C[Python Validation Layer]
+    C --> D[Python Transformation Layer]
+    D --> E[Curated Storage Layer]
+    E --> F[Redshift Data Warehouse]
+    F --> G[SQL Analytics]
+    G --> H[Power BI or Looker Dashboard]
